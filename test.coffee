@@ -1,7 +1,7 @@
 mongoose = require 'mongoose'
 vedioSchema = require './schema/video'
 
-mongoose.connect("mongodb://localhost/video")
+#mongoose.connect("mongodb://localhost/video")
 
 Model = mongoose.model 'video', vedioSchema
 
@@ -12,6 +12,8 @@ v = new Model
   cover       : 'images/123.jpg',
   url         : 'flashes/123.flash'
 
+console.log mongoose
+return
 v.save (err,data) ->
   console.log('success') unless err
   console.log data
