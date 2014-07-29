@@ -11,6 +11,6 @@
     "underscore":"*",
     "moment":"*",
     "mongoose":"*",
-    "mocha":"*"
+    "should":"*"
   }
 }
