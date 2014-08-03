@@ -7,7 +7,7 @@
 mongoose = require 'mongoose'
 
 #video
-videoSchema = new mongoose.Schema
+VideoSchema = new mongoose.Schema
   name        : String,
   summary     : String,
   create_date : String,
@@ -16,4 +16,14 @@ videoSchema = new mongoose.Schema
   plays      : { type : Number ,default : 0 }
 
 
-module.exports = videoSchema  
+VideoSchema.statics =
+	fetch : (callback) -> 
+		this.find(null)
+		.exec(callback)
+
+	findOneByID : (id,callback) ->
+		this.findOne({_id:id})
+		.exec(callback)
+
+
+module.exports = VideoSchema  

@@ -7,9 +7,15 @@ mongoose.connect("mongodb://localhost/video")
 
 describe 'fetch videos', ->
   it 'all videos', (done)->
-     Model.retire (res)->
-       res.length.should.eql(1)
-       done()
+     Model.fetch (err,videos)->
+      	videos.length.should.eql(2) unless err
+      	done()
+
+  it 'query one',(done) ->
+  		Model.findOneByID '53d9271e30d67ca40ca81e5d', (err,video)->
+  			video.name.should.eql('楚门的世界') unless err
+  			done()
+return
 
 describe 'save video', ->
 	it 'create video',(done)->
