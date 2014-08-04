@@ -9,11 +9,12 @@
 express = require 'express'
 path    = require 'path'
 http    = require 'http'
+mongoose= require 'mongoose'
 routes  = require './routes/index'
-user    = require './routes/user'
+video   = require './routes/video'
 
-app = express()
-
+app     = express()
+mongoose.connect 'mongodb://localhost/video'
 #middleware
 app.set('port',process.env.PORT||3000)
 app.set('views',path.join(__dirname,'views'))
@@ -29,7 +30,7 @@ app.use(express.static(path.join(__dirname,'bower_components')))
 app.use(express.errorHandler()) if 'development' is app.get('env')
 
 app.get('/',routes.index)
-app.get('/users',user.list)
+app.get('/videos',video.list)
 
 app.listen app.get('port'), ->
   console.log("server is running at #{app.get('port')}")
