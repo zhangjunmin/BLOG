@@ -12,8 +12,9 @@ VideoSchema = new mongoose.Schema
   summary     : String,
   create_date : String,
   cover       : String,
-  url         : String,
-  plays      : { type : Number ,default : 0 }
+  flash       : String,
+  plays       : { type : Number ,default : 0 },
+  create      : { type :Date , default : Date.now() }
 
 
 VideoSchema.statics =

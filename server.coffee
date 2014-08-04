@@ -27,6 +27,7 @@ app.use(express.methodOverride())
 app.use(app.router)
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.static(path.join(__dirname,'bower_components')))
+app.use(express.static(path.join(__dirname,'pages')))
 app.use(express.errorHandler()) if 'development' is app.get('env')
 
 app.get('/',routes.index)
