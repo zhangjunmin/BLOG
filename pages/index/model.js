@@ -15,9 +15,19 @@ window.VideoCollection = Backbone.Collection.extend({
 });
 
 VideoView = Backbone.View.extend({
+  initialize: function(model) {
+    this.render();
+    return this.model.on('change:name', (function(_this) {
+      return function(mod, name) {
+        return _this.$el.text(name);
+      };
+    })(this));
+  },
   className: 'item',
+  tagName: 'li',
   render: function() {
-    return "<li>" + (this.model.get('name')) + "</li>";
+    this.$el.text(this.model.get('name'));
+    return this;
   }
 });
 
@@ -27,9 +37,10 @@ window.AppView = Backbone.View.extend({
   },
   el: '#videos',
   render: function(model) {
-    console.log(model.toJSON());
-    return this.$el.append(new VideoView({
+    var view;
+    view = new VideoView({
       model: model
-    }).render());
+    });
+    return this.$el.append(view.$el);
   }
 });

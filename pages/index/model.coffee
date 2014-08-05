@@ -14,9 +14,15 @@ window.VideoCollection = Backbone.Collection.extend
 
 
 VideoView = Backbone.View.extend
+	initialize: (model)->
+    this.render()
+    this.model.on 'change:name',(mod,name) =>
+      this.$el.text name
   className : 'item'
-  render : -> 
-    "<li>#{this.model.get('name')}</li>"
+  tagName   : 'li'
+  render : ->
+    this.$el.text this.model.get('name')
+    this
 
 
 window.AppView = Backbone.View.extend
@@ -25,5 +31,5 @@ window.AppView = Backbone.View.extend
 
 	el     : '#videos'
 	render : (model)->
-		console.log model.toJSON()
-		this.$el.append(new VideoView({model:model}).render())
+		view = new VideoView({model:model})
+		this.$el.append(view.$el)
