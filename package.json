@@ -11,6 +11,7 @@
     "underscore":"*",
     "moment":"*",
     "mongoose":"*",
-    "should":"*"
+    "should":"*",
+    "connect":"*"
   }
 }
