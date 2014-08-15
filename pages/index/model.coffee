@@ -8,13 +8,13 @@ VideoModel = Backbone.Model
 
 
 window.VideoCollection = Backbone.Collection.extend
-	model : VideoModel,
-	url   : "/videos"
+  model : VideoModel,
+  url   : "/videos"
 
 
 
 VideoView = Backbone.View.extend
-	initialize: (model)->
+  initialize: (model)->
     this.render()
     this.model.on 'change:name',(mod,name) =>
       this.$el.text name
@@ -26,10 +26,10 @@ VideoView = Backbone.View.extend
 
 
 window.AppView = Backbone.View.extend
-	initialize : (videos) ->
-		this.listenTo this.collection, 'add', this.render
+  initialize : (videos) ->
+    this.listenTo this.collection, 'add', this.render
 
-	el     : '#videos'
-	render : (model)->
-		view = new VideoView({model:model})
-		this.$el.append(view.$el)
+  el     : '#videos'
+  render : (model)->
+    view = new VideoView({model:model})
+    this.$el.append(view.$el)
