@@ -32,6 +32,7 @@ app.use(express.errorHandler()) if 'development' is app.get('env')
 
 app.get('/',routes.index)
 app.get('/videos',video.list)
+app.get('/new',video.post)
 
 app.listen app.get('port'), ->
   console.log("server is running at #{app.get('port')}")
