@@ -14,4 +14,20 @@ html(lang='en')
     script(type='text/javascript', src='/backbone/backbone.js')
     script(type='text/javascript', src='/moment/moment.js')  	
   body
+    .container
+      nav(class="navbar navbar-inverse" role="navigation")
+        .container-fluid
+          .navbar-header
+            button(class="navbar-toggle")
+              span.sr-only
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a(class="navbar-brand" href="#") Brand
+          div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href="#") about
+              li
+                a(href="#") contact  
     block content
