@@ -35,7 +35,7 @@ app.get('/',routes.index)
 app.get('/videos',video.list)
 app.get('/new',video.find)
 app.post '/upload',(req,res)->
-  console.log(req)
+  console.log(req.files)
 
 app.listen app.get('port'), ->
   console.log("server is running at #{app.get('port')}")
