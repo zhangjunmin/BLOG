@@ -23,6 +23,7 @@ app.use(express.favicon())
 app.use(express.logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(express.bodyParser())
 app.use(express.methodOverride())
 app.use(app.router)
 app.use(express.static(path.join(__dirname,'public')))
@@ -33,6 +34,8 @@ app.use(express.errorHandler()) if 'development' is app.get('env')
 app.get('/',routes.index)
 app.get('/videos',video.list)
 app.get('/new',video.find)
+app.post '/upload',(req,res)->
+  console.log(req)
 
 app.listen app.get('port'), ->
   console.log("server is running at #{app.get('port')}")

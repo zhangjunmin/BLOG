@@ -7,9 +7,26 @@ block content
       form(class="form-horizontal" role="form")
         div.form-group
           label(for="inputEmail3" class="col-sm-2 control-label") Email
-          div.col-sm-10
+          div.col-sm-5
             input(type="email" class="form-control" id="inputEmail3" placeholder="Email")
+          div.col-sm-5
+            span#email
+            span 请输入你的邮箱,格式为XXXX@xx.com
         div.form-group
           label(for="inputPassword3" class="col-sm-2 control-label") Password
-          div.col-sm-10
-            input(type="password" class="form-control" id="inputPassword3" placeholder="Password")           
+          div.col-sm-5
+            input(type="password" class="form-control" id="inputPassword3" placeholder="Password")
+          div.col-sm-5
+            span
+            span 请输入你的密码(6-18位),可以是字符、数字、字母等。
+        div.form-group
+          label(for="inputImage" class="col-sm-2 control-label") 上传图片
+          div.col-sm-5
+            img(src="/pics/placeholder.jpg" class="img-rounded")
+            form
+              input(type='file' name='upload')
+              input(type='button' value = '上传' id='upload')
+          div.col-sm-5
+            span 请上传JPG,png,gif类型的图片。            
+  link(rel='stylesheet', href='/new/css/style.css')
+  script(type='javascript/text',src='/new/scripts/new.js')                                
