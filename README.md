@@ -7,7 +7,7 @@
 2. 安装git，然后在电脑上建立一个工作区，进入到此目录， 执行 git clone [https://github.com/zhangjunmin/BLOG.git](https://github.com/zhangjunmin/BLOG.git)
 3. 安装nodejs
 4. 安装相应工具和模块 模块 :sudo npm install -g express@3.9.0管理工具 :sudo npm install -g bower 语言 :sudo npm install -g coffee-script 测试工具 :sudo npm install -g mocha
-5. 安装本网站依赖 进入到BLOG文件夹 npm install bower install bootstrap underscore moment backbone requirejs
+5. 安装本网站依赖 进入到BLOG文件夹 bower install bootstrap underscore moment backbone requirejs
 # 启动网站: #
 1. 启动数据库服务： 解压数据库，建立一个文件夹data作为数据库 bin\mongod --dbpath data 
 2. 执行 bin\mongo 然后use video 建立数据库db.videos.find()建立一个文档集合，相当于一个表 
